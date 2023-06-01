@@ -74,4 +74,48 @@ base class DoubleLinkedList<T> {
     newNode.previous = before;
     lengthList++;
   }
+
+  T delete(int index) {
+    T value;
+    if (index < 0) {
+      throw FormatException("DoubleLinkedList.delete retrive a negative index");
+    }
+    if (index >= lengthList) {
+      throw FormatException(
+          "DoubleLinkedList.delete index is out of list's length");
+    }
+
+    if (lengthList == 1) {
+      value = lastNode!.data;
+      lastNode = null;
+      firstNode = null;
+      lengthList--;
+      return value;
+    }
+    if (index == lengthList - 1) {
+      value = lastNode!.data;
+      lastNode!.previous!.next = null;
+      lastNode = lastNode!.previous;
+      lengthList--;
+      return value;
+    }
+    if (index == 0) {
+      value = firstNode!.data;
+      firstNode!.next!.previous = null;
+      firstNode = firstNode!.next;
+      lengthList--;
+      return value;
+    }
+
+    //Delete if isn't only, last, first node
+    DoubleNode current = firstNode!;
+    for (var i = 0; i < index; i++) {
+      current = current.next!;
+    }
+    value = current.data;
+    current.previous!.next = current.next;
+    current.next!.previous = current.previous;
+    lengthList--;
+    return value;
+  }
 }
