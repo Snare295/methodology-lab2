@@ -1,12 +1,15 @@
 import 'double_node.dart';
 export 'double_node.dart';
 
-base class DoubleLinkedList {
-  DoubleLinkedList(DoubleNode? node) {
-    firstNode = node;
-    lastNode = node;
-    if (node != null) lengthList = 1;
+base class DoubleLinkedList<T> {
+  DoubleLinkedList([T? value]) {
+    if (value != null) {
+      DoubleNode startNode = DoubleNode(data: value);
+      firstNode = startNode;
+      lastNode = startNode;
+    }
   }
+
   DoubleNode? firstNode;
   DoubleNode? lastNode;
   int lengthList = 0;
@@ -15,7 +18,9 @@ base class DoubleLinkedList {
     return lengthList;
   }
 
-  void append(DoubleNode newNode) {
+  void append<T>(T value) {
+    DoubleNode newNode = DoubleNode(data: value);
+
     if (lastNode == null) {
       if (lengthList != 0)
         throw "DoubleLinkedList length != 0 when lastNode is null";
