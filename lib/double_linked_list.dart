@@ -229,4 +229,15 @@ base class DoubleLinkedList<T> {
 
     throw FormatException("DoubleLinkedList.clone is not returned clone");
   }
+
+  void clear() {
+    if (lengthList == 0) {
+      return;
+    }
+
+    int length = lengthList;
+    for (var i = 0; i < length; i++) {
+      this.delete(0);
+    }
+  }
 }

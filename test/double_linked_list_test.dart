@@ -164,4 +164,18 @@ void main() {
     expect(c3.firstNode, null);
     expect(c3.lastNode, null);
   });
+
+  test('Test clear', () {
+    var l = DoubleLinkedList();
+    l.appendCollection([10, 20, 30, 40]);
+
+    l.clear();
+    expect(() => l.get(0), throwsException);
+    expect(() => l.get(1), throwsException);
+    expect(() => l.get(2), throwsException);
+    expect(() => l.get(3), throwsException);
+    expect(l.firstNode, null);
+    expect(l.lastNode, null);
+    expect(l.lengthList, 0);
+  });
 }
