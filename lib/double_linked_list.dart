@@ -39,6 +39,12 @@ base class DoubleLinkedList<T> {
     lengthList++;
   }
 
+  void appendCollection(List<T> list) {
+    for (var element in list) {
+      this.append(element);
+    }
+  }
+
   void insert(T value, int index) {
     if (index < 0) {
       throw FormatException("DoubleLinkedList.insert retrive a negative index");

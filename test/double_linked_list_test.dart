@@ -15,6 +15,19 @@ void main() {
     expect(l.lastNode!.previous!.data, 20);
   });
 
+  test('Test appendCollection', () {
+    var l = DoubleLinkedList();
+
+    l.appendCollection([10, 20, 30, 40, 50]);
+    expect(l.firstNode!.data, 10);
+    expect(l.lastNode!.data, 50);
+    expect(l.firstNode!.next!.next!.data, 30);
+
+    var l2 = DoubleLinkedList();
+    l2.appendCollection([]);
+    expect(l2.firstNode, null);
+  });
+
   test('Test insert', () {
     var l = DoubleLinkedList(10);
     l.append(20);
