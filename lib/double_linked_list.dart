@@ -171,4 +171,24 @@ base class DoubleLinkedList<T> {
       this.append(value);
     }
   }
+
+  int findFirst(T value) {
+    if (lengthList == 0) {
+      return -1;
+    }
+
+    DoubleNode current = firstNode!;
+    for (var i = 0; i < lengthList; i++) {
+      if (current.data == value) {
+        return i;
+      }
+      if (i == lengthList - 1) {
+        return -1;
+      }
+      current = current.next!;
+    }
+
+    throw FormatException(
+        "DoubleLinkedList.findFirst is not returned index or -1");
+  }
 }

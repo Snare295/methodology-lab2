@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:lab2/double_linked_list.dart';
 import 'package:test/test.dart';
 
@@ -110,5 +112,21 @@ void main() {
 
     var l2 = DoubleLinkedList();
     l2.reverse();
+  });
+
+  test('Test findFirst', () {
+    var l = DoubleLinkedList();
+    l.appendCollection([10, 20, 10, 30, 40]);
+
+    expect(l.findFirst(10), 0);
+    expect(l.findFirst(30), 3);
+    expect(l.findFirst(40), 4);
+
+    var l2 = DoubleLinkedList();
+
+    expect(l2.findFirst(10), -1);
+
+    l2.appendCollection([10, 20, 30, 40]);
+    expect(l2.findFirst(50), -1);
   });
 }
