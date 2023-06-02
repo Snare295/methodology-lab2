@@ -79,4 +79,21 @@ void main() {
     expect(() => l2.get(-3), throwsException);
     expect(() => l2.get(3), throwsException);
   });
+
+  test('Test deleteAll', () {
+    var l = LinkedListArray();
+    l.appendCollection([10, 20, 30, 10, 20, 30, 10]);
+
+    l.deleteAll(30);
+    expect(l.get(2), 10);
+    expect(l.get(4), 10);
+
+    l.deleteAll(20);
+    expect(l.get(0), 10);
+    expect(l.get(1), 10);
+    expect(l.get(2), 10);
+
+    l.deleteAll(10);
+    expect(() => l.get(0), throwsException);
+  });
 }

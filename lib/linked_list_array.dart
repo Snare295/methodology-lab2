@@ -69,6 +69,18 @@ base class LinkedListArray<T> {
     return value;
   }
 
+  void deleteAll(T value) {
+    if (array.isEmpty) {
+      return;
+    }
+    for (var i = 0; i < array.length; i++) {
+      if (array[i].data == value) {
+        delete(i);
+        i--;
+      }
+    }
+  }
+
   T get(int index) {
     if (index < 0) {
       throw FormatException("DoubleLinkedList.get retrive a negative index");
