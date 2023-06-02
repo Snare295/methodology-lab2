@@ -68,4 +68,16 @@ base class LinkedListArray<T> {
     array.elementAt(index - 1).next = array.elementAt(index);
     return value;
   }
+
+  T get(int index) {
+    if (index < 0) {
+      throw FormatException("DoubleLinkedList.get retrive a negative index");
+    }
+    if (index >= array.length) {
+      throw FormatException(
+          "DoubleLinkedList.get index is out of list's length");
+    }
+
+    return array[index].data;
+  }
 }
