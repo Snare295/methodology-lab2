@@ -146,4 +146,20 @@ void main() {
     var c3 = l3.clone();
     expect(c3.array.isEmpty, true);
   });
+
+  test('Test reverse', () {
+    var l = LinkedListArray();
+    l.appendCollection([10, 20, 30, 40, 50, 60]);
+
+    l.reverse();
+    expect(l.get(0), 60);
+    expect(l.get(1), 50);
+    expect(l.get(2), 40);
+    expect(l.get(3), 30);
+    expect(l.get(4), 20);
+    expect(l.get(5), 10);
+
+    var l2 = LinkedListArray();
+    l2.reverse();
+  });
 }

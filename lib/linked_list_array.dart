@@ -106,4 +106,8 @@ base class LinkedListArray<T> {
     copy.array = this.array.toList();
     return copy;
   }
+
+  void reverse() {
+    array = array.reversed.toList();
+  }
 }
