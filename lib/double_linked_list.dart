@@ -240,4 +240,19 @@ base class DoubleLinkedList<T> {
       this.delete(0);
     }
   }
+
+  void extend(DoubleLinkedList list) {
+    if (list.lengthList == 0) {
+      return;
+    }
+
+    DoubleNode current = list.firstNode!;
+    for (var i = 0; i < list.lengthList; i++) {
+      this.append(current.data);
+      if (i == list.lengthList - 1) {
+        return;
+      }
+      current = current.next!;
+    }
+  }
 }

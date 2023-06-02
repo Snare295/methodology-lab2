@@ -178,4 +178,28 @@ void main() {
     expect(l.lastNode, null);
     expect(l.lengthList, 0);
   });
+
+  test('Test extend', () {
+    var l = DoubleLinkedList();
+    l.appendCollection(["h", "e", "l", "l", "o"]);
+    var e = DoubleLinkedList();
+    e.appendCollection(["w", "o", "r", "l", "d"]);
+
+    l.extend(e);
+    expect(l.get(5), "w");
+    expect(l.get(6), "o");
+    expect(l.get(7), "r");
+    expect(l.get(8), "l");
+    expect(l.get(9), "d");
+
+    expect(e.get(0), "w");
+    expect(e.get(1), "o");
+    expect(e.get(2), "r");
+    expect(e.get(3), "l");
+    expect(e.get(4), "d");
+
+    var l2 = DoubleLinkedList(10);
+    l2.extend(DoubleLinkedList());
+    expect(() => l2.get(1), throwsException);
+  });
 }
