@@ -114,4 +114,10 @@ base class LinkedListArray<T> {
   void clear() {
     array.clear();
   }
+
+  void extend(LinkedListArray list) {
+    for (var element in list.array) {
+      this.append(element.data);
+    }
+  }
 }

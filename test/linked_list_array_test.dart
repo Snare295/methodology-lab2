@@ -174,4 +174,28 @@ void main() {
     expect(() => l.get(3), throwsException);
     expect(l.array.length, 0);
   });
+
+  test('Test extend', () {
+    var l = LinkedListArray();
+    l.appendCollection(["h", "e", "l", "l", "o"]);
+    var e = LinkedListArray();
+    e.appendCollection(["w", "o", "r", "l", "d"]);
+
+    l.extend(e);
+    expect(l.get(5), "w");
+    expect(l.get(6), "o");
+    expect(l.get(7), "r");
+    expect(l.get(8), "l");
+    expect(l.get(9), "d");
+
+    expect(e.get(0), "w");
+    expect(e.get(1), "o");
+    expect(e.get(2), "r");
+    expect(e.get(3), "l");
+    expect(e.get(4), "d");
+
+    var l2 = LinkedListArray(10);
+    l2.extend(LinkedListArray());
+    expect(() => l2.get(1), throwsException);
+  });
 }
