@@ -100,4 +100,10 @@ base class LinkedListArray<T> {
   int findLast(T value) {
     return array.lastIndexWhere((element) => element.data == value);
   }
+
+  LinkedListArray clone() {
+    LinkedListArray copy = LinkedListArray();
+    copy.array = this.array.toList();
+    return copy;
+  }
 }
