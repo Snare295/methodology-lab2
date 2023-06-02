@@ -125,6 +125,23 @@ base class DoubleLinkedList<T> {
     return value;
   }
 
+  void deleteAll(T value) {
+    if (lengthList == 0) {
+      return;
+    }
+    DoubleNode pointer = firstNode!;
+    for (var i = 0; i < lengthList; i++) {
+      if (pointer.data == value) {
+        delete(i);
+        i--;
+      }
+      if (i == lengthList - 1) {
+        return;
+      }
+      pointer = pointer.next!;
+    }
+  }
+
   T get(int index) {
     T value;
 
