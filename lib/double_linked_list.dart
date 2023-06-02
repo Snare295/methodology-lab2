@@ -164,4 +164,11 @@ base class DoubleLinkedList<T> {
     value = pointer.data;
     return value;
   }
+
+  void reverse() {
+    for (int i = lengthList - 1; i >= 0; i--) {
+      T value = this.delete(i);
+      this.append(value);
+    }
+  }
 }

@@ -95,4 +95,20 @@ void main() {
     l.deleteAll(10);
     expect(() => l.get(0), throwsException);
   });
+
+  test('Test reverse', () {
+    var l = DoubleLinkedList();
+    l.appendCollection([10, 20, 30, 40, 50, 60]);
+
+    l.reverse();
+    expect(l.get(0), 60);
+    expect(l.get(1), 50);
+    expect(l.get(2), 40);
+    expect(l.get(3), 30);
+    expect(l.get(4), 20);
+    expect(l.get(5), 10);
+
+    var l2 = DoubleLinkedList();
+    l2.reverse();
+  });
 }
