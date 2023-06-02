@@ -63,4 +63,19 @@ void main() {
 
     expect(() => l.delete(0), throwsFormatException);
   });
+
+  test('Test get', () {
+    var l = DoubleLinkedList();
+    l.appendCollection([10, 20, 30, 40, 50, 10, 20]);
+
+    expect(l.get(3), 40);
+    expect(l.get(5), 10);
+    expect(l.get(0), 10);
+    expect(l.get(6), 20);
+
+    var l2 = DoubleLinkedList();
+    expect(() => l2.get(0), throwsException);
+    expect(() => l2.get(-3), throwsException);
+    expect(() => l2.get(3), throwsException);
+  });
 }

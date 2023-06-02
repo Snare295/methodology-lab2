@@ -124,4 +124,27 @@ base class DoubleLinkedList<T> {
     lengthList--;
     return value;
   }
+
+  T get(int index) {
+    T value;
+
+    if (index < 0) {
+      throw FormatException("DoubleLinkedList.get retrive a negative index");
+    }
+    if (index >= lengthList) {
+      throw FormatException(
+          "DoubleLinkedList.get index is out of list's length");
+    }
+    if (lengthList == 0) {
+      throw FormatException(
+          "DoubleLinkedList.get trying to get value from empty list");
+    }
+
+    DoubleNode pointer = firstNode!;
+    for (var i = 0; i < index; i++) {
+      pointer = pointer.next!;
+    }
+    value = pointer.data;
+    return value;
+  }
 }
