@@ -44,4 +44,28 @@ base class LinkedListArray<T> {
     }
     array.insert(index, newNode);
   }
+
+  T delete(int index) {
+    T value;
+    if (index < 0) {
+      throw FormatException("LinkedListArray.delete retrive a negative index");
+    }
+    if (index >= array.length) {
+      throw FormatException(
+          "LinkedListArray.delete index is out of list's length");
+    }
+
+    if (index == 0) {
+      value = array.removeAt(0).data;
+      return value;
+    }
+    if (index == array.length - 1) {
+      value = array.removeLast().data;
+      array.last.next = null;
+      return value;
+    }
+    value = array.removeAt(index).data;
+    array.elementAt(index - 1).next = array.elementAt(index);
+    return value;
+  }
 }
