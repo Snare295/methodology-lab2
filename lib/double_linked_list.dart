@@ -23,9 +23,10 @@ base class DoubleLinkedList<T> {
     DoubleNode newNode = DoubleNode(data: value);
 
     if (lastNode == null) {
-      if (lengthList != 0)
+      if (lengthList != 0) {
         throw FormatException(
             "DoubleLinkedList length != 0 when lastNode is null");
+      }
 
       firstNode = newNode;
       lastNode = newNode;

@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:lab2/double_linked_list.dart';
 import 'package:test/test.dart';
 
