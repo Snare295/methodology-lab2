@@ -110,4 +110,8 @@ base class LinkedListArray<T> {
   void reverse() {
     array = array.reversed.toList();
   }
+
+  void clear() {
+    array.clear();
+  }
 }
