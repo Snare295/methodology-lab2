@@ -129,4 +129,20 @@ void main() {
     l2.appendCollection([10, 20, 30, 40]);
     expect(l2.findFirst(50), -1);
   });
+
+  test('Test findLast', () {
+    var l = DoubleLinkedList();
+    l.appendCollection([50, 20, 10, 30, 10]);
+
+    expect(l.findLast(10), 4);
+    expect(l.findLast(30), 3);
+    expect(l.findLast(50), 0);
+
+    var l2 = DoubleLinkedList();
+
+    expect(l2.findLast(10), -1);
+
+    l2.appendCollection([10, 20, 30, 40]);
+    expect(l2.findLast(50), -1);
+  });
 }

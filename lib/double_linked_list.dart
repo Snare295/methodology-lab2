@@ -191,4 +191,24 @@ base class DoubleLinkedList<T> {
     throw FormatException(
         "DoubleLinkedList.findFirst is not returned index or -1");
   }
+
+  int findLast(T value) {
+    if (lengthList == 0) {
+      return -1;
+    }
+
+    DoubleNode current = lastNode!;
+    for (var i = lengthList - 1; i >= 0; i--) {
+      if (current.data == value) {
+        return i;
+      }
+      if (i == 0) {
+        return -1;
+      }
+      current = current.previous!;
+    }
+
+    throw FormatException(
+        "DoubleLinkedList.findLast is not returned index or -1");
+  }
 }
