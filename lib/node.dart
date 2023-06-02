@@ -5,3 +5,10 @@ base class DoubleNode<T> {
   DoubleNode<T>? next;
   DoubleNode<T>? previous;
 }
+
+base class Node<T> {
+  Node({required this.data, this.next});
+
+  T data;
+  Node<T>? next;
+}

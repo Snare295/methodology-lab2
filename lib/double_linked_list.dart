@@ -1,5 +1,5 @@
-import 'double_node.dart';
-export 'double_node.dart';
+import 'node.dart';
+export 'node.dart';
 
 base class DoubleLinkedList<T> {
   DoubleLinkedList([T? value]) {
