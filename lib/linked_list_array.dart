@@ -92,4 +92,12 @@ base class LinkedListArray<T> {
 
     return array[index].data;
   }
+
+  int findFirst(T value) {
+    return array.indexWhere((element) => element.data == value);
+  }
+
+  int findLast(T value) {
+    return array.lastIndexWhere((element) => element.data == value);
+  }
 }
