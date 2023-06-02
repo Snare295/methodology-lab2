@@ -145,4 +145,23 @@ void main() {
     l2.appendCollection([10, 20, 30, 40]);
     expect(l2.findLast(50), -1);
   });
+
+  test('Test clone', () {
+    var l = DoubleLinkedList();
+    l.appendCollection(["a", "b", "c"]);
+
+    var c = l.clone();
+    expect(c.get(0), "a");
+    expect(c.get(1), "b");
+    expect(c.get(2), "c");
+
+    var l2 = DoubleLinkedList("V");
+    var c2 = l2.clone();
+    expect(c2.get(0), "V");
+
+    var l3 = DoubleLinkedList();
+    var c3 = l3.clone();
+    expect(c3.firstNode, null);
+    expect(c3.lastNode, null);
+  });
 }

@@ -211,4 +211,22 @@ base class DoubleLinkedList<T> {
     throw FormatException(
         "DoubleLinkedList.findLast is not returned index or -1");
   }
+
+  DoubleLinkedList clone() {
+    DoubleLinkedList copy = DoubleLinkedList();
+    if (lengthList == 0) {
+      return copy;
+    }
+
+    DoubleNode current = firstNode!;
+    for (var i = 0; i < lengthList; i++) {
+      copy.append(current.data);
+      if (i == lengthList - 1) {
+        return copy;
+      }
+      current = current.next!;
+    }
+
+    throw FormatException("DoubleLinkedList.clone is not returned clone");
+  }
 }
